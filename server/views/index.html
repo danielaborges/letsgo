@@ -2,18 +2,18 @@
 <!--[if lt IE 7]>      <html lang="en" ng-app="lisbonBigApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" ng-app="lisbonBigApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="lisbonBigApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="lisbonBigApp" class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="letsgoApp" class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Vodafone Lisbon Big Apps Event</title>
+  <title>Lets Go</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/app.css"/>
 </head>
 <body>
   <ul class="menu">
-    <li><a href="#/itinerary">Home</a></li>
+    <li><a href="#/event">Home</a></li>
   </ul>
 
   <!--[if lt IE 7]>
@@ -27,10 +27,23 @@
   -->
   <script src="bower_components/angular/angular.min.js"></script>
   <script src="bower_components/angular-route/angular-route.min.js"></script>
+   
   <script src="js/app.js"></script>
+  
+  <!-- Services -->
   <script src="js/services.js"></script>
+  <script src="partials/EventData/EventFactory.js"></script>
+  
+  
+  <!-- Controllers -->
   <script src="js/controllers.js"></script>
+  <script src="partials/EventData/EventDataCtrl.js"></script>
+  <script src="partials/ListEvents/EventCtrl.js"></script>
+  
+  <!-- Filters -->
   <script src="js/filters.js"></script>
+  
+  <!-- Directs -->
   <script src="js/directives.js"></script>
 </body>
 </html>

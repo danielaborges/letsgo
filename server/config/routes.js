@@ -31,7 +31,7 @@ module.exports = function(server) {
         },
         {
             method: 'GET',
-            path: '/partials/{path}',
+            path: '/partials/{path*}',
             config: controller.assets.partials
         },
         {

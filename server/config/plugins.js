@@ -6,7 +6,7 @@ module.exports = function(server) {
             'tmp/logs/': ['ops', 'request', 'log', 'error']
         }
     };
-    // The Assets Configuaration Options
+    // The Assets Configuration Options
     var assetOptions = require('../../assets');
 
     server.pack.register([
