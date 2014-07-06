@@ -5,9 +5,9 @@
 
 // Demonstrate how to register services
 // In this case it is a simple value service.
-var appServices = angular.module('lisbonBigApp.services', []);
+var appServices = angular.module('letsgoApp.services', []);
    	
-appServices.factory('ItineraryFactory', ['$http', function($http){
+appServices.factory('EventFactory', ['$http', function($http){
 	function getData(id){
 		return $http({
 			method: 'GET', 

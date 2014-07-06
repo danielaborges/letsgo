@@ -2,7 +2,7 @@
 
 /* Filters */
 
-angular.module('lisbonBigApp.filters', []).
+angular.module('letsgoApp.filters', []).
   filter('interpolate', ['version', function(version) {
     return function(text) {
       return String(text).replace(/\%VERSION\%/mg, version);

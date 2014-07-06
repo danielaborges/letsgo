@@ -2,19 +2,23 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('lisbonBigApp', [
+angular.module('letsgoApp', [
   'ngRoute',
-  'lisbonBigApp.filters',
-  'lisbonBigApp.services',
-  'lisbonBigApp.directives',
-  'lisbonBigApp.controllers'
+  'letsgoApp.filters',
+  'letsgoApp.services',
+  'letsgoApp.directives',
+  'letsgoApp.controllers'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/itinerary', {templateUrl: 'partials/itinerary-list.html', 
-		controller: 'ItineraryCtrl'});
-  $routeProvider.when('/itinerary/:itineraryId', {templateUrl: 'partials/itinerary-data.html', 
-		controller: 'ItineraryDataCtrl'});
-  $routeProvider.otherwise({redirectTo: '/itinerary'});
+  $routeProvider.when('/event', {
+	templateUrl: 'partials/event-list.html', 
+	controller: 'EventCtrl'});
+  $routeProvider.when('/event/:eventId', {
+	templateUrl: 'partials/event-data.html', 
+	controller: 'EventDataCtrl'});
+  $routeProvider.otherwise({
+	redirectTo: '/event'
+  });
 }]);
 
 
