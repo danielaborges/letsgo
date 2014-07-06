@@ -4,27 +4,16 @@ module.exports = {
         handler: function(request, reply){
           // Render the view with the custom greeting
             reply.view('index', {
-                title: 'Awesome Boiler Plate Homepage'
+                title: 'Lets go'
             });
         },
         app: {
             name: 'index'
         }
     },
-    about: {
-        handler: function(request, reply){
-            reply.view('about', {
-                title: 'This is the example about page'
-            });
-        },
-        app: {
-            name: 'about'
-        }
-    },
 	getdata: {
         handler: function(request, reply){
 			var id = request.query.id;
-			console.log("RESQUESTID :: " +  request.query.id)
             reply('Superheroic id : ' + id);
         },
         app: {

@@ -9,21 +9,16 @@ module.exports = function(server) {
 
     // Array of routes for Hapi
     var routeTable = [
-        {
-            method: 'GET',
-            path: '/getdata',
-            config: controller.base.getdata
-        },
 		{
-            method: 'GET',
-            path: '/about',
-            config: controller.base.about
-        },
-        {
             method: 'GET',
             path: '/',
             config: controller.base.index
-        },
+        },       
+	    {
+            method: 'GET',
+            path: '/getdata',
+            config: controller.base.getdata
+        },        
         {
             method: 'GET',
             path: '/{path*}',
