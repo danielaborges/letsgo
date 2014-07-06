@@ -2,9 +2,4 @@
 
 /* Filters */
 
-angular.module('letsgoApp.filters', []).
-  filter('interpolate', ['version', function(version) {
-    return function(text) {
-      return String(text).replace(/\%VERSION\%/mg, version);
-    };
-  }]);
+var appFilters = angular.module('letsgoApp.filters', []);
