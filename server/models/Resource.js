@@ -6,12 +6,12 @@ function Resource (id, name, quantity) {
     this.id = id | "";
     this.name = name | "";
     this.quantity = quantity | "";
-    
-    this.getId = function(){
-        return id;
-    };
-   
-    this.setId = function(id){
-        id = id;
-    };
 }
+
+Resource.prototype.getId = function(){
+    return id;
+};
+
+Resource.prototype.setId = function(id){
+    id = id;
+};

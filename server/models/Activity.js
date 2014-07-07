@@ -9,22 +9,23 @@ function Activity (id, type, description) {
     this.optionList = [];
     this.eventList = [];     // an activity could be part of multiple events, and vice-versa
     
-    
-    this.getId = function(){
-        return id;
-    };
+}
+
+Activity.prototype.getId = function(){
+    return id;
+};
    
-    this.setId = function(id){
-        id = id;
-    };
+Activity.prototype.setId = function(id){
+    id = id;
+};
     
-    this.getType = function(){
-        return type;
-    };
+Activity.prototype.getType = function(){
+    return type;
+};
    
-    this.setType = function(type){
-        type = type;
-    };
+Activity.prototype.setType = function(type){
+    type = type;
+};
     
-    //TODO more methods...
+//TODO more methods...
 }
