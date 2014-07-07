@@ -26,6 +26,14 @@ Activity.prototype.getType = function(){
 Activity.prototype.setType = function(type){
     type = type;
 };
+
+Activity.prototype.getDescription = function(){
+    return description;
+};
+   
+Activity.prototype.setDescription = function(description){
+    description = description;
+};
     
 //TODO more methods...
 }
