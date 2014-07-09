@@ -34,5 +34,19 @@ Activity.prototype.getDescription = function(){
 Activity.prototype.setDescription = function(description){
     this.description = description;
 };
-  
-//TODO more methods...
+
+Activity.prototype.getOptionList = function(){
+    return this.optionList;
+};
+
+Activity.prototype.getEventList = function(){
+    return this.eventList;
+};
+
+Activity.prototype.addOption = function(Option){
+    this.optionList.push(Option);
+};
+
+Activity.prototype.addEvent = function(Event){
+    this.eventList.push(Event);
+};

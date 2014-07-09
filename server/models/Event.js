@@ -5,7 +5,7 @@
 function Event (id, name) {
     this.id = id || "";
     this.name = name || "";
-    this.ActivityList = [];  // an event could be part of multiple activities, and vice-versa
+    this.activityList = [];  // an event could be part of multiple activities, and vice-versa
 }
     
 Event.prototype.getId = function(){
@@ -22,4 +22,12 @@ Event.prototype.getName = function(){
    
 Event.prototype.setName = function(name){
     this.name = name;
+};
+
+Event.prototype.getActivityList = function(){
+    return this.activityList;
+};
+
+Event.prototype.addActivity = function(Activity){
+    this.activityList.push(Activity);
 };

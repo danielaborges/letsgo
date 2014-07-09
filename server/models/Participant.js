@@ -32,3 +32,11 @@ Participant.prototype.getEmail = function(){
 Participant.prototype.setEmail = function(email){
     this.email = email;
 };
+
+Participant.prototype.getResourceList = function(){
+    return this.resourceList;
+};
+
+Participant.prototype.addResource = function(Resource){
+    this.resourceList.push(Resource);
+};
