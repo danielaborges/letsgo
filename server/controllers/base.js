@@ -1,40 +1,56 @@
 //user testing...
-var users = {
-    daniela: {
-        id: 'daniela',
-        password: 'admin', //TODO:: bycript must be used.. 
-        name: 'John Doe'
-    },
-    pedro: {
-        id: 'pedro',
-        password: 'admin', //TODO:: bycript must be used.. 
-        name: 'John Doe'
-    },
-};
+var users = [
+    {
+        "id": "administrator",
+        "password": "admin"     
+    }
+]
 
 var uuid = 1;       // Use seq instead of proper unique identifiers for demo only
 
 // This is the base controller. Used for base routes, such as the default index/root path, 404 error pages, and others.
+
+
+
+function getUserIfExists(account){
+
+    for(var i in users){
+        var user = users[i];       
+
+        if(user.id === account.id)
+            return user;
+    }
+    return false;
+}
+
+
+function addAccountToServerCache(request, reply, account){
+    var sid = String(++uuid);
+    request.server.app.cache.set(sid, { account: account }, 0, function (err) {
+
+        if (err) {
+            reply(err);
+        }
+
+        request.auth.session.set({ sid: sid });
+        return reply.redirect('/');
+    });
+}
+
 module.exports = {
     googleauth: {
         auth: 'google',
         handler: function(request, reply){
-            
-            //TODO:: add user to user list
-            
+
             //Google authorized this login
-            var sid = String(++uuid);
-            var account = users['daniela']; //test, cause data is not saved and users not added
-            request.server.app.cache.set(sid, { account: account }, 0, function (err) {
 
-                if (err) {
-                    reply(err);
-                }
+            //TODO:: add user to user list
+            //if not exists, create
 
-                request.auth.session.set({ sid: sid });
-                return reply.redirect('/');
-            });
-           
+            //autorize fake account...
+            var fakeAcc = getUserIfExists({"id": "administrator", "password": "admin"}); 
+            addAccountToServerCache(request, reply, fakeAcc);
+
         }
     },
 
@@ -51,13 +67,17 @@ module.exports = {
 
             if (request.method === 'post') {
 
-                if (!request.payload.username ||
-                    !request.payload.password) {
+                if (!request.payload.username || !request.payload.password) {
 
                     message = 'Missing username or password';
                 }
                 else {
-                    account = users[request.payload.username];
+
+                    var userAcc = {
+                        "id": request.payload.username,
+                        "password": request.payload.password  
+                    }  
+                    account = getUserIfExists(userAcc);
                     if (!account ||
                         account.password !== request.payload.password) {
 
@@ -66,21 +86,11 @@ module.exports = {
                 }
             }
 
-            if (request.method === 'get' ||
-                message) {
+            if (request.method === 'get' || message) {
                 return reply.view('login');
             }
 
-            var sid = String(++uuid);
-            request.server.app.cache.set(sid, { account: account }, 0, function (err) {
-
-                if (err) {
-                    reply(err);
-                }
-
-                request.auth.session.set({ sid: sid });
-                return reply.redirect('/');
-            });
+            addAccountToServerCache(request, reply, account);
 
         },
 
@@ -98,8 +108,50 @@ module.exports = {
     logout : {
         handler: function(request, reply){
             request.auth.session.clear();
-            return reply.redirect('/login'); //reply.redirect('/');
+            return reply.redirect('/login'); 
         }        
+    },
+
+    signin : {
+        handler: function(request, reply){
+            if (request.auth.isAuthenticated) {
+                return reply.redirect('/');
+            }
+
+            var message = '';
+            var account = null;
+
+            if (request.method === 'post') {
+                if (!request.payload.username || !request.payload.password) {
+                    reply('Missing username or password');
+                }
+                else{
+
+                    var userAcc = {
+                            "id": request.payload.username,
+                            "password": request.payload.password  
+                    }                
+                    //TODO:: validate input data...
+                    
+                    users.push(account);
+                    console.log("--- List of users updated ---")
+                    console.log(users)
+                    addAccountToServerCache(request, reply, account);
+                }
+            }
+            if (request.method === 'get' || message) {
+                return reply.view('signin');
+            }
+
+        },
+        auth: {
+            mode: 'try'
+        },
+        plugins: {
+            'hapi-auth-cookie': {
+                redirectTo: false
+            }
+        }
     },
 
 

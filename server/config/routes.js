@@ -27,9 +27,13 @@ module.exports = function(server) {
             method: 'GET',
             path: '/logout',
             config: controller.base.logout
-            
-
         },   
+        {
+            method: ['GET', 'POST'],
+            path: '/signin',
+            config: controller.base.signin
+           
+        },  
 
         {
             method: 'GET',
