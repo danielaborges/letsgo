@@ -9,6 +9,10 @@ module.exports = function(server) {
 
     // Array of routes for Hapi
     var routeTable = [
+        {   method: 'GET',
+            path: '/authenticate/google',   //Google redirect URI
+            config: controller.base.googleauth
+        },
 		{
             method: 'GET',
             path: '/',

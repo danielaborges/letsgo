@@ -6,7 +6,7 @@ function Participant (id, name, email) {
     this.id = id || "";
     this.name = name || "";
     this.email = email || "";
-    this.resourceList = [];
+    this.resourceList = [];     //[{resource (id, name)}, quantity]
 }
 
 Participant.prototype.getId = function(){
