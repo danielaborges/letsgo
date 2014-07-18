@@ -9,20 +9,43 @@ module.exports = function(server) {
 
     // Array of routes for Hapi
     var routeTable = [
-        {   method: 'GET',
+        {   
+            method: 'GET',
             path: '/authenticate/google',   //Google redirect URI
             config: controller.base.googleauth
         },
-		{
+
+
+        {
+            method: ['GET', 'POST'],
+            path: '/login',
+            config: controller.base.login
+           
+        },   
+
+        {
+            method: 'GET',
+            path: '/logout',
+            config: controller.base.logout
+        },   
+        {
+            method: ['GET', 'POST'],
+            path: '/signin',
+            config: controller.base.signin
+           
+        },  
+
+        {
             method: 'GET',
             path: '/',
             config: controller.base.index
+            
         },       
-	    {
+        {
             method: 'GET',
             path: '/getdata',
             config: controller.base.getdata
-        },        
+        }/*,        
         {
             method: 'GET',
             path: '/{path*}',
@@ -52,7 +75,7 @@ module.exports = function(server) {
             method: 'GET',
             path: '/bower_components/{path*}',
             config: controller.assets.bower
-        }
+        }*/
     ];
     return routeTable;
 }
