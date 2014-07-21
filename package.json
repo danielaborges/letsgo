@@ -1,12 +1,12 @@
 {
-  "name": "hapi-ninja",
-  "description": "Boilerplate Hapi server example. Node.js, Hapi, and Swig.",
-  "version": "0.2.0",
-  "author": "Saul Maddox",
-  "private": false,
+  "name": "letsgg",
+  "description": "LetsGo! app! The ultimate acitivity manager!",
+  "version": "0.0.1",
+  "author": "Casalinho fofinho*",
+  "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/poeticninja/hapi-ninja.git"
+    "url": "https://github.com/danielaborges/letsgo"
   },
   "main": "server.js",
   "engines": {
