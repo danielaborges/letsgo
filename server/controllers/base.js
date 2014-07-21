@@ -133,10 +133,10 @@ module.exports = {
                     }                
                     //TODO:: validate input data...
                     
-                    users.push(account);
+                    users.push(userAcc);
                     console.log("--- List of users updated ---")
                     console.log(users)
-                    addAccountToServerCache(request, reply, account);
+                    addAccountToServerCache(request, reply, userAcc);
                 }
             }
             if (request.method === 'get' || message) {
