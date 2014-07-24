@@ -15,8 +15,6 @@ require('./server/config/plugins')(server);
 // Register bell with the server
 
 
-
-
 // Declare an authentication strategy using the bell scheme
 // with the name of the provider, cookie encryption password,
 // and the OAuth client credentials.

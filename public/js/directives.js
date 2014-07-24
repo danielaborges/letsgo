@@ -2,5 +2,4 @@
 
 /* Directives */
 
-
 var appDirectives = angular.module('letsgoApp.directives', []);

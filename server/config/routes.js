@@ -11,7 +11,7 @@ module.exports = function(server) {
     var routeTable = [
         
         //AUTHENTICATION
-        {   
+       {   
             method: 'GET',
             path: '/authenticate/google',   //Google redirect URI
             config: controller.auth.googleauth
