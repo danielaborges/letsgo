@@ -32,4 +32,4 @@ Event.prototype.addActivity = function(Activity){
     this.activityList.push(Activity);
 };
 
-module.exports = Event;
+module.exports = Event;	

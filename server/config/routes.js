@@ -50,13 +50,12 @@ module.exports = function(server) {
             method: 'GET',
             path: '/getdata',
             config: controller.base.getdata
-        },        
-        {
-            method: 'GET',
-            path: '/{path*}',
-            config: controller.base.missing
         },
-        
+        {
+            method: 'POST',
+            path: '/create/event',
+            config: controller.create.event
+        },        
         
         
         // ASSETS, JS, CSS, ETC.
