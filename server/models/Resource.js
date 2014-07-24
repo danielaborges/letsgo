@@ -31,3 +31,5 @@ Resource.prototype.getQuantity = function(){
 Resource.prototype.setQuantity = function(quantity){
     this.quantity = quantity;
 };
+
+module.exports = Resource;

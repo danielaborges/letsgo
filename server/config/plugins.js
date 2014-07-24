@@ -13,8 +13,8 @@ module.exports = function(server) {
         {
             plugin: require("good"),
             options: goodOptions
-        }/*,       
-        {
+        },       
+    /*    {
             plugin: require("hapi-assets"),
             options: assetOptions
         },

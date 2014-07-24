@@ -40,3 +40,5 @@ Participant.prototype.getResourceList = function(){
 Participant.prototype.addResource = function(Resource){
     this.resourceList.push(Resource);
 };
+
+module.exports = Participant;

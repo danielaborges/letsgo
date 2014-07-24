@@ -31,3 +31,5 @@ Event.prototype.getActivityList = function(){
 Event.prototype.addActivity = function(Activity){
     this.activityList.push(Activity);
 };
+
+module.exports = Event;

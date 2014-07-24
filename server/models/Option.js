@@ -31,3 +31,5 @@ Option.prototype.getHour = function(){
 Option.prototype.setHour = function(hour){
     this.hour = hour;
 };
+
+module.exports = Option;

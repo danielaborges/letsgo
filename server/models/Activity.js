@@ -58,3 +58,5 @@ Activity.prototype.getResourceList = function(){
 Activity.prototype.addResource = function(Resource){
     this.resourceList.push(Resource);
 };
+
+module.exports = Activity;

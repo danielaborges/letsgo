@@ -14,4 +14,4 @@ appControllers.controller('EventDataCtrl', ['$scope', '$routeParams', 'EventFact
 
 	
 		
-  }]);
+}]);
