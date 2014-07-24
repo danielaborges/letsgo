@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
 <!--[if lt IE 7]>      <html lang="en" ng-app="lisbonBigApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" ng-app="lisbonBigApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="lisbonBigApp" class="no-js lt-ie9"> <![endif]-->
@@ -9,21 +10,33 @@
     <title>Lets Go</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" media="screen" href="bower_components/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" media="screen" href="css/app.css"/>
+
+
 </head>
 <body>
-    <ul class="menu">
-        <li><a href="#/event">Home</a></li>
-    </ul>
+    <div class="container">
+        <ul class="menu">
+            <li><a href="#/event">Home</a></li>
 
-    <!--[if lt IE 7]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
-    <p> Succesfully logged in with normal login (user/pass) or Google API<br/>        
-        <a href="/logout">Logout</a>
-    </p> 
-    <div ng-view></div>
+            <!--   Succesfully logged in with normal login (user/pass) or Google API      -->
+            <li><a href="/logout">Logout</a></li>
 
+        </ul>
+
+
+        <!--[if lt IE 7]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div ng-view></div>
+
+    </div>
+
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <!-- Twitter bootstrap -->
+    <script src="bower_components/bootstrap/js/bootstrap.min.js"></script> 
 
     <!-- In production use:
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>

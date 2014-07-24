@@ -1,8 +1,24 @@
 <h3>Event List</h3>
 
-<div ng-repeat="event in eventList">	
-	   <a href="#/event/{{event.id}}">{{event.name}}</a>
-</div>
 
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>#ID</th>
+            <th>Event Name</th>
+            <th>View</th>
+        </tr>
+    </thead>
 
+    <tbody>
+        <tr ng-repeat="event in eventList">	
+           
+                <td>{{event.id}}</td>
+                <td>{{event.name}}</td>
+                <td><a class="btn btn-success btn-xs" href="#/event/{{event.id}}">View<span class="glyphicon glyphicon-star"></span></a></td>
+            
+        </tr>
+    </tbody>
+
+</table>
 

@@ -1,15 +1,26 @@
+<!DOCTYPE html>
 <html>
-    <head><title>Sign Up</title></head>
+    <head>
+        <title>Sign up page</title>
+
+     <!--   <link rel="stylesheet" media="screen" href="bower_components/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/app.css"/>-->
+
+    </head>
+
     <body>
-       
         <h3>Sign Up</h3>
         <form method="post" action="/signup">
             Username: <input type="text" name="username"><br>
             Password: <input type="password" name="password"><br/>
             <input type="submit" value="Sign in">
         </form>
-        
+
         <a href="/authenticate/google">GoogleAuth</a>
-        
+
+
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <!-- Twitter bootstrap -->
+        <script src="bower_components/bootstrap/js/bootstrap.min.js"></script> 
     </body>
 </html>

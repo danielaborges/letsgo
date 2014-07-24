@@ -1,7 +1,15 @@
+<!DOCTYPE html>
 <html>
-    <head><title>Login page</title></head>
+    <head>
+        <title>Login page</title>
+
+        <link rel="stylesheet" media="screen" href="bower_components/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/app.css"/>
+
+    </head>
+
     <body>
-        
+
         <h5>Test Users...</h5>
         <i>
             id: 'administrator', password: 'admin'   
@@ -13,10 +21,15 @@
             Password: <input type="password" name="password"><br/>
             <input type="submit" value="Login">
         </form>
-        
+
         <a href="/authenticate/google">GoogleAuth</a><br/>
-        
+
         <a href="/signup">Sign Up</a>
-        
+
+
+
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <!-- Twitter bootstrap -->
+        <script src="bower_components/bootstrap/js/bootstrap.min.js"></script> 
     </body>
 </html>
