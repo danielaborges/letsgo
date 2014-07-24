@@ -17,7 +17,7 @@ appServices.factory('EventListFactory', ['$http', function($http){
         return $http({
             method: 'POST', 
             url: '/create/event',
-            params: {'name': name }
+            data: {'name': name }
         });
     }
 
