@@ -2,10 +2,23 @@
 
 /* Controllers */
 
-appControllers.controller('EventCtrl', ['$scope', function($scope) {
+appControllers.controller('EventCtrl', ['$scope', 'EventListFactory', function($scope, EventListFactory) {
 
-		$scope.eventList = [	{"id": 1, "name":"Event 1"},
-								{"id": 2, "name":"Event 2"},
-								{"id": 3, "name":"Event 3"} ]
- 
-  }]);
+
+    function initialize(){
+        EventListFactory.getEventList().then(function(result) {
+            $scope.eventList =  result.data;
+        });
+    }
+    
+    initialize();
+
+    $scope.addEvent = function(){
+        EventListFactory.addEvent($scope.eventName).then(function(result) {
+            console.log(result.data);
+
+        });
+
+    }
+
+    }]);

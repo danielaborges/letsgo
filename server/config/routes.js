@@ -54,8 +54,15 @@ module.exports = function(server) {
         {
             method: 'POST',
             path: '/create/event',
-            config: controller.create.event
-        },        
+            config: controller.events.event
+        },     
+        {
+            method: 'GET',
+            path: '/event/all',
+            config: controller.events.getAllEvents
+        },     
+        
+        
         
         
         // ASSETS, JS, CSS, ETC.

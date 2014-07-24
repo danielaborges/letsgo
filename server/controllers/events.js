@@ -9,12 +9,29 @@ module.exports = {
                 return reply.redirect('/');
             }
             console.log(request.query.name);
-            reply(new Event(1, request.payload.name));
             
+            reply(new Event(1, request.payload.name));
+
         },
         validate: { 
             payload: { 
                 name: Joi.string().min(1).required()
-        } }
+            }
+        }
+    },
+
+    getAllEvents : {
+        handler: function(request, reply){
+            if (!request.auth.isAuthenticated) {
+                return reply.redirect('/');
+            }
+
+            //FIXME            
+            var eventList = [{"id": 1, "name":"Event 1"}, {"id": 2, "name":"Event 2"}, {"id": 3, "name":"Event 3"}];
+
+            reply(eventList);
+
+        },
+
     }
 }
