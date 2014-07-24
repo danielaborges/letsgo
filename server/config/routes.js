@@ -47,7 +47,7 @@ module.exports = function(server) {
             config: controller.base.getdata
         },
         {
-            method: 'GET',
+            method: 'POST',
             path: '/create/event',
             config: controller.create.event
         }/*,        

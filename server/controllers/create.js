@@ -9,14 +9,11 @@ module.exports = {
                 return reply.redirect('/');
             }
             console.log(request.query.name);
-            var event = new Event();
-            console.log(event);
-            new event(1, request.query.name);
-            reply(event);
+            reply(new Event(1, request.payload.name));
             
         },
         validate: { 
-            query: { 
+            payload: { 
                 name: Joi.string().min(1).required()
         } }
     }
