@@ -2,4 +2,4 @@
 
 /* Controllers */
 
-var appControllers = angular.module('letsgoApp.controllers', []);
+var appControllers = angular.module('myApp.controllers', []);

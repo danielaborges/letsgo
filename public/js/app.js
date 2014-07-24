@@ -2,12 +2,12 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('letsgoApp', [
+angular.module('myApp', [
     'ngRoute',
-    'letsgoApp.filters',
-    'letsgoApp.services',
-    'letsgoApp.directives',
-    'letsgoApp.controllers'
+    'myApp.filters',
+    'myApp.services',
+    'myApp.directives',
+    'myApp.controllers'
 ]).
 config(['$routeProvider', function($routeProvider) {
 

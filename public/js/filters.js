@@ -2,4 +2,4 @@
 
 /* Filters */
 
-var appFilters = angular.module('letsgoApp.filters', []);
+var appFilters = angular.module('myApp.filters', []);

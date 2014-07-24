@@ -5,4 +5,4 @@
 
 // Demonstrate how to register services
 // In this case it is a simple value service.
-var appServices = angular.module('letsgoApp.services', []);
+var appServices = angular.module('myApp.services', []);
