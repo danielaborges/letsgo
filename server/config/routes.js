@@ -9,43 +9,16 @@ module.exports = function(server) {
 
     // Array of routes for Hapi
     var routeTable = [
-        
-        //AUTHENTICATION
-       {   
-            method: 'GET',
-            path: '/authenticate/google',   //Google redirect URI
-            config: controller.auth.googleauth
-        },
 
-        {
-            method: ['GET', 'POST'],
-            path: '/login',
-            config: controller.auth.login
-           
-        },   
-
-        {
-            method: 'GET',
-            path: '/logout',
-            config: controller.auth.logout
-        },   
-        {
-            method: ['GET', 'POST'],
-            path: '/signup',
-            config: controller.auth.signup
-           
-        },  
-        
-        
         //APP ROUTES
 
         {
             method: 'GET',
             path: '/',
             config: controller.base.index
-            
+
         },       
-  
+
         //APP ROUTES :: EVENTS
         {
             method: 'POST',
@@ -62,7 +35,30 @@ module.exports = function(server) {
             path: '/event/data',
             config: controller.events.getEventData
         },
-        
+
+
+        //AUTHENTICATION
+        {   
+            method: 'GET',
+            path: '/authenticate/google',   //Google redirect URI
+            config: controller.auth.googleauth
+        },
+        {
+            method: ['GET', 'POST'],
+            path: '/login',
+            config: controller.auth.login           
+        },  
+        {
+            method: 'GET',
+            path: '/logout',
+            config: controller.auth.logout
+        },   
+        {
+            method: ['GET', 'POST'],
+            path: '/signup',
+            config: controller.auth.signup           
+        },  
+
         
         // ASSETS, JS, CSS, ETC.
         {

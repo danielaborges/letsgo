@@ -9,6 +9,8 @@ exports.ActivityService = (function () {
 
     ActivityService.prototype.createActivity = function(callback) {  
         //TODO
+        
+        //also adds options and resources
     }
 
     ActivityService.prototype.getActivity = function(activityId, callback) {	

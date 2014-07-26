@@ -2,10 +2,11 @@
 
 /* Participant class */
 
-function Participant (id, name, email) {
-    this.id = id || "";
+function Participant (id, name, email, password) {
+    this.id = id || "";             //must be a GUID (see https://www.npmjs.org/package/guid)
     this.name = name || "";
     this.email = email || "";
+    this.password = password || ""; //bycript needed (see https://www.npmjs.org/package/bcrypt-nodejs)
     this.resourceList = [];     //[{resource (id, name)}, quantity]
 }
 
