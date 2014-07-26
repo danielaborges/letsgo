@@ -6,8 +6,9 @@ function Activity (id, type, description) {
     this.id = id || "";
     this.type = type || "";  //ex. cinema, theatre, football game...
     this.description = description || "";
-    this.optionList = [];
     this.eventList = [];     // an activity could be part of multiple events, and vice-versa
+    
+    this.optionList = [];
     this.resourceList = [];  //[{resource (id, name)}, quantity]
 }
 
