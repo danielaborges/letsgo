@@ -3,15 +3,15 @@
 /* Services */
 
 appServices.factory('EventFactory', ['$http', function($http){
-	function getData(id){
+	function getEventData(id){
 		return $http({
 			method: 'GET', 
-			url: '/getdata',
+			url: '/event/data',
 			params: {'id': id }
 		});
 	}
 	
     return {
-		getData : getData
+		getEventData : getEventData
 	}
 }]);

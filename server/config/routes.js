@@ -17,7 +17,6 @@ module.exports = function(server) {
             config: controller.auth.googleauth
         },
 
-
         {
             method: ['GET', 'POST'],
             path: '/login',
@@ -38,7 +37,7 @@ module.exports = function(server) {
         },  
         
         
-        //NORMAL ROUTES
+        //APP ROUTES
 
         {
             method: 'GET',
@@ -46,23 +45,23 @@ module.exports = function(server) {
             config: controller.base.index
             
         },       
-        {
-            method: 'GET',
-            path: '/getdata',
-            config: controller.base.getdata
-        },
+  
+        //APP ROUTES :: EVENTS
         {
             method: 'POST',
             path: '/create/event',
-            config: controller.events.event
+            config: controller.events.createEvent
         },     
         {
             method: 'GET',
             path: '/event/all',
             config: controller.events.getAllEvents
-        },     
-        
-        
+        },  
+        {
+            method: 'GET',
+            path: '/event/data',
+            config: controller.events.getEventData
+        },
         
         
         // ASSETS, JS, CSS, ETC.

@@ -8,7 +8,7 @@ appControllers.controller('EventCtrl', ['$scope', 'EventListFactory', function($
     
     function initialize(){
         EventListFactory.getEventList().then(function(result) {
-            $scope.eventList =  result.data;
+            $scope.eventList =  result.data.eventList;
         });
     }
     

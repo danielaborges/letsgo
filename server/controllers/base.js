@@ -8,13 +8,7 @@ module.exports = {
             reply.view('index');
         }
     },
-    getdata: {
 
-        handler: function(request, reply){
-            var id = request.query.id;
-            reply('Superheroic id : ' + id);
-        }
-    },
     missing: {
         handler: function(request, reply){
             reply.view('404', {

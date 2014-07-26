@@ -5,11 +5,11 @@
 appControllers.controller('EventDataCtrl', ['$scope', '$routeParams', 'EventFactory',                                            function($scope, $routeParams, EventFactory) {
 
     $scope.eventId = $routeParams.eventId;
-    $scope.hello = '';
+    $scope.eventData = '';
 
     function initialize(){
-        EventFactory.getData($scope.eventId).then(function(result) {
-            $scope.hello =  result.data;
+        EventFactory.getEventData($scope.eventId).then(function(result) {
+            $scope.eventData =  result.data.eventData;
         });
     }
 
