@@ -6,6 +6,8 @@ var Hapi = require('hapi'),
     hapiauth = require('hapi-auth-cookie'),
     bell = require('bell');
 
+var cacheExpireTime = 3 * 24 * 60 * 60 * 1000;
+
 // Create a server with a host, port, and options
 var server = Hapi.createServer('0.0.0.0', config.port, config.hapi.options);
 
@@ -28,13 +30,13 @@ server.pack.register(bell, function (err) {
     });
 });
 
-var cache = server.cache('sessions', { expiresIn: 3 * 24 * 60 * 60 * 1000 });
+var cache = server.cache('sessions', { expiresIn: cacheExpireTime });
 server.app.cache = cache;
 
 server.pack.register(hapiauth, function (err) {
     server.auth.strategy('session', 'cookie', true, {
         password: 'secret',
-        cookie: 'sid-example',
+        cookie: 'sid-letsGo',
         redirectTo: '/login',
         isSecure: false,
         validateFunc: function (session, callback) {
