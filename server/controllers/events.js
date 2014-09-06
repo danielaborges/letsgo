@@ -1,7 +1,6 @@
 var Joi = require('joi');
-var EventService = require('../services/EventService').EventService.getInstance();
+var eventService = require('../services/EventService').EventService.getInstance();
 
-// This is the create controller. Goal is to serve as the creator for all classes.
 module.exports = {
     createEvent: {
         handler: function(request, reply){
@@ -9,19 +8,23 @@ module.exports = {
                 return reply.redirect('/');
             }
 
-            var event = new Event(1, request.payload.name)
+            //    var eventData = request.payload.name;
 
-            reply({
-                event: event
-            }).code(event? 200 : 400);
+            //  eventService.createEvent(eventData, function(err, eventId){
+            eventService.createEvent("daniela", function(err, eventId){
 
+                reply({
+                    eventId: eventId,
+                    message: ''
+                }).code(eventId? 200 : 400);
+            });
 
-        },
+        }/*,
         validate: { 
             payload: { 
                 name: Joi.string().min(1).required()
             }
-        }
+        }*/
     },
 
     getEventData: {
@@ -32,11 +35,16 @@ module.exports = {
                 return reply.redirect('/');
             }
 
-            var id = request.query.id;
-           
-            reply({
-                eventData: id
-            }).code(id? 200 : 400);
+            var eventId = request.query.id;
+            eventService.getEvent(eventId, function(err, eventData){
+
+                reply({
+                    eventData: eventData,
+                    message: ''
+                }).code(eventData? 200 : 400);
+
+            });
+
 
         }
     },
@@ -47,12 +55,15 @@ module.exports = {
                 return reply.redirect('/');
             }
 
-            //FIXME            
-            var eventList = [{"id": 1, "name":"Event 1"}, {"id": 2, "name":"Event 2"}, {"id": 3, "name":"Event 3"}];
+            eventService.getAllEvents(function(err, eventList){
 
-            reply({
-                eventList: eventList
-            }).code(eventList? 200 : 400);
+                reply({
+                    eventList: eventList,
+                    message: ''
+                }).code(eventList? 200 : 400);
+
+
+            });
 
         },
 
