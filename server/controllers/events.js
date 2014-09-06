@@ -1,5 +1,5 @@
 var Joi = require('joi');
-var Event = require('../models/Event');
+var EventService = require('../services/EventService').EventService.getInstance();
 
 // This is the create controller. Goal is to serve as the creator for all classes.
 module.exports = {

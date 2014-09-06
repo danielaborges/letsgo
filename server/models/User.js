@@ -3,7 +3,7 @@
 var Sequelize = require('sequelize');
 
 module.exports = function(sequelize, DataTypes) {
-    return sequelize.define('Event', {
+    return sequelize.define('User', {
         id: {
             type: Sequelize.UUID,
             defaultValue: Sequelize.UUIDV1,
@@ -12,19 +12,14 @@ module.exports = function(sequelize, DataTypes) {
         name: {
             type: DataTypes.STRING
         },
-        description: {
+        email: {
             type: DataTypes.STRING
         },
-
-        location: {
+       
+        password: { //TODO use bycript on save
             type: DataTypes.STRING
         },
-        hour: {
-            type: DataTypes.STRING
-        },
-        date: {
-            type: DataTypes.DATE
-        },
+       
 
     }, {
         classMethods: {
@@ -36,16 +31,16 @@ module.exports = function(sequelize, DataTypes) {
                     if (err) {
                         console.log('An error occurred while searching for id', err)   
                     } else if (!results) {
-                        console.log('No event with this ID has been found.')
+                        console.log('No user with this ID has been found.')
                     }
                     resultsCallback(err, results);  
                 })
             },
             getAll: function (resultsCallback) {                  
-                this.findAll().complete(function(err, events) {
-                    resultsCallback(err, events);                   
-                })
-            },
+				this.findAll().complete(function(err, users) {
+					resultsCallback(err, users);                   
+				})
+			},
         },
 
         instanceMethods: {

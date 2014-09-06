@@ -1,5 +1,10 @@
 'use strict';
 
+var models = require('../config/database');
+
+
+var Event = models.Event;
+
 exports.EventService = (function () {
 
     var instance;
