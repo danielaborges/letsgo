@@ -13,32 +13,23 @@ exports.EventService = (function () {
 
 
     EventService.prototype.createEvent = function(eventData, callback) {  
-        //TODO
-
-        console.log(eventData);
 
         Event
-        .create({
-            name: eventData
-        })
+        .create({name: eventData})
         .complete(function(err, event) {
-            console.log("created event:");
-            console.log(event);
             callback(err, event.id);
-
         })
 
     }
 
     EventService.prototype.getEvent = function(eventId, callback) {	
-        //TODO    
+        Event.findById(eventId, function(err, results){
+            callback(err, results);
+        });
+
     }
 
     EventService.prototype.getAllEvents = function(callback) {	
-        //TODO    
-        //   var eventList = [{"id": 1, "name":"Event 1"}, {"id": 2, "name":"Event 2"}, {"id": 3, "name":"Event 3"}];
-
-
         Event
         .findAll()
         .complete(function(err, results) {
@@ -49,18 +40,29 @@ exports.EventService = (function () {
             } else {
                 console.log('Results found.');
             }
+            callback(err, results);
         })
     }
 
-    
-    
-    
+
     EventService.prototype.updateEvent = function(eventId, dataToUpdate, callback) {
-        //TODO
+        Event
+        .findById(eventId,  function(err, user){
+
+            user.updateAttributes(dataToUpdate/*, ['name']*/).success(function() {             
+                callback(err, results);
+            });
+        });
     }
 
     EventService.prototype.removeEvent = function(eventId, callback) {
-        //TODO
+
+        Event
+        .findById(eventId,  function(err, results){
+            event.destroy().success(function() {
+                callback(err, results);
+            });
+        });
     }
 
     return {

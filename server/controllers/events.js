@@ -8,10 +8,10 @@ module.exports = {
                 return reply.redirect('/');
             }
 
-            //    var eventData = request.payload.name;
+                var eventData = request.payload.name;
 
-            //  eventService.createEvent(eventData, function(err, eventId){
-            eventService.createEvent("daniela", function(err, eventId){
+                eventService.createEvent(eventData, function(err, eventId){
+
 
                 reply({
                     eventId: eventId,
@@ -36,6 +36,7 @@ module.exports = {
             }
 
             var eventId = request.query.id;
+            
             eventService.getEvent(eventId, function(err, eventData){
 
                 reply({
