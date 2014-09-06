@@ -1,12 +1,10 @@
 "use strict";
 
-var Sequelize = require('sequelize');
-
 module.exports = function(sequelize, DataTypes) {
     return sequelize.define('User', {
         id: {
-            type: Sequelize.UUID,
-            defaultValue: Sequelize.UUIDV1,
+            type: DataTypes.UUID,
+            defaultValue: DataTypes.UUIDV1,
             primaryKey: true
         },
         name: {
