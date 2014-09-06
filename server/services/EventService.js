@@ -13,11 +13,7 @@ exports.EventService = (function () {
 
     EventService.prototype.getEvent = function(eventId, callback) {	
         //TODO    
-    } 
-
-    EventService.prototype.getAllActivities = function(callback) {
-        //TODO	
-    }  
+    }
 
     EventService.prototype.updateEvent = function(eventId, dataToUpdate, callback) {
         //TODO

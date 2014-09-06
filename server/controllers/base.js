@@ -3,8 +3,6 @@ module.exports = {
     index: {
 
         handler: function(request, reply){
-
-        //    reply.view('testindex');
             reply.view('index');
         }
     },
