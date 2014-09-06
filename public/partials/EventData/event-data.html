@@ -6,27 +6,31 @@ Data from server (example): {{eventData}}
 </p>
 
 
+<div class="row">
 <form name='userForm' novalidate>
-    <div class='form-group' ng-repeat='formStructure in form.formStructure' ng-class='{{formStructure.formGroupNgClass}}'>
+    <div class='form-group' ng-repeat='formStructure in form' ng-class='{{formStructure.formGroupNgClass}}'>
+        <span ng-if="formStructure.labelFor === 'userEmail'">alert(hello)</span>
         <ng-form name='userFieldForm'>
-            {{formStructure}}
             <div class='col-md-4'>
                 <label for='{{formStructure.labelFor}}'
                        class='{{formStructure.labelClass}}'>{{formStructure.labelText}}</label>
                 <input type='{{formStructure.inputType}}'
                        id='{{formStructure.inputId}}' 
                        placeholder='{{formStructure.inputPlaceholder}}'
-                       name='{{formStructure.inputName}}'
+                       name='field'
                       
                        class='{{formStructure.inputClass}}'
-                       ng-model='formStructure.inputNgModel' required/>
+                       ng-model='user[formStructure.inputNgModel]' />
             </div>
+
             <div class='col-md-2'>
                 <span ng-show='{{formStructure.errorNgShow}}' class="help-block">{{formStructure.errorText}}</span>
             </div>
-            
         </ng-form>
     </div>
 </form>
-
-{{formStructure}}
+    </div>
+<br/>
+<div class="row">
+<pre>{{user | json}}</pre>
+</div>

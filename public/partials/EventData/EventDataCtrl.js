@@ -6,6 +6,7 @@ appControllers.controller('EventDataCtrl', ['$scope', '$routeParams', 'EventFact
 
     $scope.eventId = $routeParams.eventId;
     $scope.eventData = '';
+    $scope.user = {};
 
     function initialize(){
         EventFactory.getEventData($scope.eventId).then(function(result) {
@@ -13,11 +14,11 @@ appControllers.controller('EventDataCtrl', ['$scope', '$routeParams', 'EventFact
         });
     }
     
-    $scope.form = {
-        'formStructure' : [
+    
+    
+    $scope.form = [
             {
-                'formGroupNgClass' : '{ "has-error" : userNameForm.userName.$invalid && !userNameForm.userName.$pristine }',
-                'ngFormName' : 'userNameForm',
+                'formGroupNgClass' : '{ "has-error" : userFieldForm.field.$invalid && !userFieldForm.field.$pristine }',
                 'labelFor' : 'userName',
                 'labelClass' : 'col-md-2 control-label',
                 'labelText' : 'Nome',
@@ -27,14 +28,13 @@ appControllers.controller('EventDataCtrl', ['$scope', '$routeParams', 'EventFact
                 'inputName' : 'userName', 
                 'inputPlaceHolder' : 'Nome Contribuinte',
                 'inputClass' : 'form-control col-md-offset-1',
-                'inputNgModel' : 'user.name',
-                'otherAttributes' : 'required',
-                'errorNgShow' : 'userFieldForm.userName.$invalid && !userFieldForm.userName.$pristine',
+                'inputNgModel' : 'name',
+                'otherAttributes' : 'required novalidate',
+                'errorNgShow' : 'userFieldForm.field.$invalid && !userFieldForm.field.$pristine',
                 'errorText' : 'Campo obrigatório'
-            }/*,
+            },
             {
-                'formGroupNgClass' : '{ "has-error" : userEmailForm.userEmail.$invalid && !userEmailForm.userEmail.$pristine }',
-                'ngFormName' : 'userEmailForm',
+                'formGroupNgClass' : '{ "has-error" : userFieldForm.field.$invalid && !userFieldForm.field.$pristine }',
                 'labelFor' : 'userEmail',
                 'labelClass' : 'col-md-2 control-label',
                 'labelText' : 'Email',
@@ -44,13 +44,12 @@ appControllers.controller('EventDataCtrl', ['$scope', '$routeParams', 'EventFact
                 'inputName' : 'userEmail', 
                 'inputPlaceHolder' : 'myEmail@emailHost.com',
                 'inputClass' : 'form-control col-md-offset-1',
-                'inputNgModel' : 'user.email',
+                'inputNgModel' : 'email',
                 'otherAttributes' : 'required',
-                'errorNgShow' : 'userFieldForm.userEmail.$invalid && !userFieldForm.userEmail.$pristine',
+                'errorNgShow' : 'userFieldForm.field.$invalid && !userFieldForm.field.$pristine',
                 'errorText' : 'Email inválido'
-            }*/
-        ]
-    }
+            }
+        ];
 
     initialize();
 
