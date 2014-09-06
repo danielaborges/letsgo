@@ -4,3 +4,29 @@ ID: {{eventId}}
 <br/>
 Data from server (example): {{eventData}}
 </p>
+
+
+<form name='userForm' novalidate>
+    <div class='form-group' ng-repeat='formStructure in form.formStructure' ng-class='{{formStructure.formGroupNgClass}}'>
+        <ng-form name='userFieldForm'>
+            {{formStructure}}
+            <div class='col-md-4'>
+                <label for='{{formStructure.labelFor}}'
+                       class='{{formStructure.labelClass}}'>{{formStructure.labelText}}</label>
+                <input type='{{formStructure.inputType}}'
+                       id='{{formStructure.inputId}}' 
+                       placeholder='{{formStructure.inputPlaceholder}}'
+                       name='{{formStructure.inputName}}'
+                      
+                       class='{{formStructure.inputClass}}'
+                       ng-model='formStructure.inputNgModel' required/>
+            </div>
+            <div class='col-md-2'>
+                <span ng-show='{{formStructure.errorNgShow}}' class="help-block">{{formStructure.errorText}}</span>
+            </div>
+            
+        </ng-form>
+    </div>
+</form>
+
+{{formStructure}}
