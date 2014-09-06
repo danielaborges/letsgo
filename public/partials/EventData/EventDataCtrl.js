@@ -2,10 +2,12 @@
 
 /* Controllers */
 
-appControllers.controller('EventDataCtrl', ['$scope', '$routeParams', 'EventFactory',                                            function($scope, $routeParams, EventFactory) {
+appControllers.controller('EventDataCtrl', ['$scope', '$routeParams', 'EventFactory', function($scope, $routeParams, EventFactory) {
 
     $scope.eventId = $routeParams.eventId;
     $scope.eventData = '';
+    
+    //the object that will store the form data aka ng-model
     $scope.user = {};
 
     function initialize(){
@@ -24,11 +26,12 @@ appControllers.controller('EventDataCtrl', ['$scope', '$routeParams', 'EventFact
                 'labelText' : 'Nome',
                 'inputType' : 'text',
                 'inputId' : 'userName',
-                //'inputValidate' : '',
+                'inputValidate' : 'empty',
                 'inputName' : 'userName', 
-                'inputPlaceHolder' : 'Nome Contribuinte',
-                'inputClass' : 'form-control col-md-offset-1',
+                'inputPlaceholder' : 'Nome Contribuinte',
+                'inputClass' : 'form-control',
                 'inputNgModel' : 'name',
+                'inputRequired' : true,
                 'otherAttributes' : 'required novalidate',
                 'errorNgShow' : 'userFieldForm.field.$invalid && !userFieldForm.field.$pristine',
                 'errorText' : 'Campo obrigatório'
@@ -40,10 +43,11 @@ appControllers.controller('EventDataCtrl', ['$scope', '$routeParams', 'EventFact
                 'labelText' : 'Email',
                 'inputType' : 'email',
                 'inputId' : 'userEmail',
-                //'inputValidate' : '',
+                'inputValidate' : 'empty',
                 'inputName' : 'userEmail', 
-                'inputPlaceHolder' : 'myEmail@emailHost.com',
-                'inputClass' : 'form-control col-md-offset-1',
+                'inputPlaceholder' : 'myEmail@emailHost.com',
+                'inputClass' : 'form-control',
+                'inputRequired' : false,
                 'inputNgModel' : 'email',
                 'otherAttributes' : 'required',
                 'errorNgShow' : 'userFieldForm.field.$invalid && !userFieldForm.field.$pristine',
