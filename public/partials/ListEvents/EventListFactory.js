@@ -20,9 +20,17 @@ appServices.factory('EventListFactory', ['$http', function($http){
             data: {'name': name }
         });
     }
+    
+    function deleteEvent(id){
+        return $http({
+            method: 'DELETE', 
+            url: '/delete/' + id           
+        });
+    }
 
     return {
         getEventList : getEventList,
-        addEvent : addEvent
+        addEvent : addEvent,
+        deleteEvent : deleteEvent
     }
 }]);

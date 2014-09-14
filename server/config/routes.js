@@ -36,6 +36,12 @@ module.exports = function(server) {
             config: controller.events.getEventData
         },
 
+        {
+            method: 'DELETE',
+            path: '/delete/{id}',
+            config: controller.events.deleteEvent
+        },  
+
 
         //AUTHENTICATION
         {   

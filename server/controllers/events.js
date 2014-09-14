@@ -49,6 +49,29 @@ module.exports = {
 
         }
     },
+    
+    deleteEvent: {
+
+        handler: function(request, reply){
+
+            if (!request.auth.isAuthenticated) {
+                return reply.redirect('/');
+            }
+
+            var eventId = request.params.id;
+            console.log("----------- id " + eventId)
+            eventService.removeEvent(eventId, function(err, eventData){
+
+                reply({
+                    eventData: eventData,
+                    message: ''
+                }).code(eventData? 200 : 400);
+
+            });
+
+
+        }
+    },
 
     getAllEvents : {
         handler: function(request, reply){

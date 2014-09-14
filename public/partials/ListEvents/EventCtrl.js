@@ -4,9 +4,17 @@
 
 appControllers.controller('EventCtrl', ['$scope', 'EventListFactory', function($scope, EventListFactory) {
 
-    $scope.fakeAddedEvent = null;
+    // ** VARIABLES ** //
+    
+    $scope.addedEvent = null;
     $scope.eventList = null;
 
+    
+    // delete variables
+    $scope.eventIdToDelete;
+    $scope.eventNameToDelete;
+
+    // ** FUNCTIONS ** //
 
 
     $scope.loadAllEvents = function(){
@@ -21,7 +29,7 @@ appControllers.controller('EventCtrl', ['$scope', 'EventListFactory', function($
 
     $scope.addEvent = function(){
         EventListFactory.addEvent($scope.eventName).then(function(result) {
-            $scope.fakeAddedEvent = result.data;
+            $scope.addedEvent = result.data;
 
             //update
             $scope.loadAllEvents();
@@ -29,6 +37,39 @@ appControllers.controller('EventCtrl', ['$scope', 'EventListFactory', function($
         });
 
     }
+
+
+
+    /* 
+    * delete event action 
+    *
+    */
+
+
+
+    $scope.deleteEventPopup = function(id, name){
+
+        $scope.eventIdToDelete = id;
+        $scope.eventNameToDelete = name;
+
+    }
+
+    $scope.confirmDeleteEventPopup = function(){
+
+        //send delete mesage to server
+        EventListFactory.deleteEvent($scope.eventIdToDelete).then(function(result) {
+            
+            //update
+            $scope.loadAllEvents();
+
+            //close popup
+            
+        });
+
+
+    }
+
+
 
 
     function initialize(){

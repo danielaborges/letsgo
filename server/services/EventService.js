@@ -58,8 +58,8 @@ exports.EventService = (function () {
     EventService.prototype.removeEvent = function(eventId, callback) {
 
         Event
-        .findById(eventId,  function(err, results){
-            event.destroy().success(function() {
+        .findById(eventId,  function(err, event){
+            event.destroy().success(function(results) {
                 callback(err, results);
             });
         });
